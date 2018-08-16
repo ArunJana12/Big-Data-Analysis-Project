@@ -2,8 +2,7 @@
 CREATE KEYSPACE IF NOT EXISTS hacker_news WITH REPLICATION = {'class':'SimpleStrategy','replication_factor':3};
 
 --Create Table
-CREATE TABLE stories (id int primary key,by text,score int,time double,time_ts timestamp,title text,url text,text text,
-text);
+CREATE TABLE stories (id int primary key,submittedby text,score int,time double,time_ts timestamp,title text,url text,text text,deletedIs boolean,deadIs boolean,descendants int,author text);
 
 --Import CSV File
 COPY stories (id,submittedby,score,time,time_ts,title,url,text,deletedIs,deadIs,descendants,author) from 'stories1.csv' WITH HEADER = true;
